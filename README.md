@@ -1,50 +1,82 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 3D Сцена с React Three Fiber
 
-Currently, two official plugins are available:
+Этот проект представляет собой 3D сцену, созданную с использованием **React Three Fiber** и **@react-three/drei**. В проекте используется базовое освещение, пост-обработка и управление камерой.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Возможности
 
-## Expanding the ESLint configuration
+- **Эффекты пост-обработки**: Включает эффекты bloom и SSAO (экранно-пространственное затенение) для улучшения качества изображения.
+- **Интерактивные элементы**: Пользователи могут взаимодействовать с объектами, вращать их, а также видеть информацию при наведении.
+- **Skybox**: Текстурированный skybox для полного погружения.
+- **Управление камерой**: Возможность вращения камеры и масштабирования с помощью мыши.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Структура проекта
 
-- Configure the top-level `parserOptions` property like this:
+- **App.tsx**: Главный файл, содержащий настройку 3D сцены, освещение и элементы управления.
+- **components/Objects.tsx**: Содержит отдельные 3D объекты, такие как куб, сфера, цилиндр и плоскость.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Установка и запуск локально
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Необходимые компоненты
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Node.js**: Убедитесь, что у вас установлен Node.js. Скачать можно [здесь](https://nodejs.org/).
+- **npm или yarn**: Убедитесь, что у вас установлен `npm` или `yarn` в качестве менеджера пакетов.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Шаги установки
+
+1. **Клонируйте репозиторий**:
+
+   ```bash
+   git clone https://github.com/maanukyaan/threejs-test
+   cd threejs-test
+   ```
+
+2. **Установите зависимости**:
+
+   Если вы используете `npm`:
+
+   ```bash
+   npm install
+   ```
+
+   Если вы используете `yarn`:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Запустите сервер разработки**:
+
+   С `npm`:
+
+   ```bash
+   npm run dev
+   ```
+
+   С `yarn`:
+
+   ```bash
+   yarn dev
+   ```
+
+4. **Откройте браузер**: После запуска сервера, откройте браузер и перейдите по адресу:
+
+   ```
+   http://localhost:5173
+   ```
+
+   Теперь вы должны увидеть 3D сцену.
+
+## Использование
+
+- Вы можете вращать и приближать сцену с помощью мыши.
+- Взаимодействуйте с объектами, наводите на них курсор, чтобы увидеть метки с информацией о цветах.
+- Наслаждайтесь погружением в 3D пространство с использованием skybox и эффектов пост-обработки.
+
+## Технологии
+
+- **React Three Fiber**: Мощный рендерер для Three.js в React.
+- **Three.js**: Библиотека для работы с 3D графикой.
+- **@react-three/drei**: Библиотека, предоставляющая дополнительные инструменты для работы с React Three Fiber.
+- **Vite**: Быстрый инструмент сборки и сервер разработки.
+
